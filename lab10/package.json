@@ -1,0 +1,32 @@
+{
+  "name": "react-training",
+  "version": "1.0.0",
+  "description": "React Project Template with automated build.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/watzthisco/tdd-react-es6.git"
+  },
+  "engines": {
+    "node": "4.4.2"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^2.9.0",
+    "eslint-plugin-react": "^5.1.1",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-cli": "github:gulpjs/gulp-cli#4.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-jasmine": "^2.3.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-webserver": "^0.9.1",
+    "jasmine": "^2.4.1",
+    "jasmine-reporters": "^2.1.1",
+    "jshint": "^2.9.1",
+    "semver": "^5.1.0"
+  }
+}
