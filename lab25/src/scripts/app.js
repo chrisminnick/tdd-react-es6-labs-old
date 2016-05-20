@@ -4,7 +4,9 @@ import { createStore } from 'redux';
 import PollContainer from '../containers/PollContainer';
 import selector from '../reducers';
 
-const store = createStore(selector);
+const store = createStore(selector,
+    window.devToolsExtension ? window.devToolsExtension() : undefined
+);
 
 ReactDOM.render(<PollContainer store={store} />,
     document.getElementById('app'));
