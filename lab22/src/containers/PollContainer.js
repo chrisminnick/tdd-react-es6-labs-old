@@ -94,6 +94,7 @@ class PollContainer extends React.Component {
                                 choices={this.state.choices}
                                 onChange = {this.setCheckedValue} />
                             <PollSubmitButton />
+                            {console.log("javascript in pollcontainer.")}
                         </form>
                     </div>
                 </div>

@@ -33,9 +33,7 @@ module.exports = function(config) {
 
         webpack:{
             entry  : './src/scripts/app.js',
-            /*output : {
-                filename : 'app.js'
-            },*/
+
             module : {
                 loaders: [ {
                     test   : /.js$/,

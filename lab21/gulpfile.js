@@ -115,7 +115,7 @@ gulp.task('version', function(done) {
     var expectedVersion	= packageJson.engines.node;
     var actualVersion	= process.version;
 
-    if (semver.neq(expectedVersion,actualVersion)){
+    if (semver.gt(expectedVersion,actualVersion)){
         console.log('Incorrect node version. Expected ' +
             expectedVersion + '. Actual: ' + actualVersion);
         process.exit(1);

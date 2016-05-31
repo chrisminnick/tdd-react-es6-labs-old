@@ -1,8 +1,8 @@
 'use strict';
 
 const gulp      = require('gulp');
-const eslint = require('gulp-eslint');
-const jshint      = require('gulp-jshint');
+const eslint    = require('gulp-eslint');
+const jshint    = require('gulp-jshint');
 const semver    = require('semver');
 
 //check node version
@@ -14,7 +14,7 @@ gulp.task('version', function(done) {
     var expectedVersion	= packageJson.engines.node;
     var actualVersion	= process.version;
 
-    if (semver.neq(expectedVersion,actualVersion)){
+    if (semver.gt(expectedVersion,actualVersion)){
         console.log('Incorrect node version. Expected ' +
             expectedVersion + '. Actual: ' + actualVersion);
         process.exit(1);
@@ -57,7 +57,8 @@ gulp.task('eslint', function () {
 });
 
 //default task
-gulp.task('default', gulp.series(gulp.parallel('version','eslint'), function(done) {
+gulp.task('default', gulp.series(gulp.parallel('version','eslint'),
+    function(done) {
     console.log('BUILD OK');
     done();
 }));
