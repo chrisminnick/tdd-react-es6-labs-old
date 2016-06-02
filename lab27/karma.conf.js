@@ -1,3 +1,5 @@
+var webpack = require('webpack');
+
 module.exports = function(config) {
     config.set({
 
@@ -40,7 +42,13 @@ module.exports = function(config) {
                     }
                 }
                 ]
-            }
+            },
+            plugins: [
+                new webpack.ProvidePlugin({
+                    $: 'jquery',
+                    jQuery: 'jquery'
+                })
+            ]
         },
 
         // test results reporter to use

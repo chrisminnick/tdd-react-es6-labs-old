@@ -5,6 +5,7 @@ const del           = require('del');
 const DIST          = 'dist';
 const eslint        = require('gulp-eslint');
 const jasmine       = require('gulp-jasmine');
+const jest          = require('jest-cli');
 const jshint        = require('gulp-jshint');
 const karma         = require('gulp-karma-runner');
 const reporters     = require('jasmine-reporters');
@@ -47,6 +48,17 @@ gulp.task('jasmine', function(done) {
             })
         }));
     done();
+});
+
+//Run jest
+gulp.task('jest', function(done) {
+    var onComplete = function (result) {
+        if (!result) {
+            console.log('Jest tests failed!');
+        }
+        done();
+    };
+    jest.runCLI({}, __dirname, onComplete);
 });
 
 //start karma server

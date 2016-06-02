@@ -3,7 +3,8 @@ import PollHeader from '../components/PollHeader';
 import PollQuestion from '../components/PollQuestion';
 import RadioButtonGroup from '../components/RadioButtonGroup';
 import PollSubmitButton from '../components/PollSubmitButton.js';
-import $ from 'jQuery';
+import $ from 'jquery';
+import { Provider } from 'react-redux';
 
 class PollContainer extends React.Component {
     constructor(props){
@@ -30,7 +31,6 @@ class PollContainer extends React.Component {
             console.log('correct');
         }
     }
-
 
 
 
@@ -71,6 +71,10 @@ class PollContainer extends React.Component {
     }
 
     render(){
+        this.props.store.subscribe(() => {
+            this.setState({checkedValue: this.props.store.getState()});
+            console.log(this.props.store.getState());
+        });
 
         var rowStyle = {
             backgroundColor: '#dadada',
@@ -80,6 +84,7 @@ class PollContainer extends React.Component {
         };
 
         return (
+            <Provider store={this.props.store}>
             <div className="container">
                 <div className="jumbotron">
                     <PollHeader text={this.state.header} />
@@ -92,13 +97,14 @@ class PollContainer extends React.Component {
                                 name='answer'
                                 checkedValue={this.state.checkedValue}
                                 choices={this.state.choices}
-                                onChange = {this.setCheckedValue} />
+                                onChange = {(value) => this.props.store.dispatch({ type: 'SELECT', selected: value })} />
                             <PollSubmitButton />
                         </form>
                     </div>
                 </div>
-
             </div>
+
+            </Provider>
         );
     }
 
