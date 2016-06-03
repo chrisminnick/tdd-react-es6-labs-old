@@ -9,7 +9,7 @@ class PollContainer extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            checkedValue: '',
+            checkedValue: [],
             header: '',
             questions: [],
             choices: [],
@@ -19,9 +19,13 @@ class PollContainer extends React.Component {
         this.setCheckedValue = this.setCheckedValue.bind(this);
     }
 
-    setCheckedValue(value){
+    setCheckedValue(name,value){
+        var newChecked = this.state.checkedValue.slice(0,this.state.numberOfQuestions);
+        newChecked[name] = value;
+        console.log("newChecked: " + newChecked);
+        console.log("numberOfQuestions: " + this.state.numberOfQuestions);
         this.setState({
-            checkedValue: value
+            checkedValue: newChecked
         });
         console.log('current selection: ' + value);
     }
@@ -81,19 +85,18 @@ class PollContainer extends React.Component {
         };
 
         var questionsArray = this.state.questions;
-        var currentQuestion = 0;
-        var questionsOutput = questionsArray.map(function(question){
-            currentQuestion++;
+        var questionsOutput = questionsArray.map(function(question,questionNumber){
             return (
-            <div key={`question-number-${currentQuestion}`}>
+            <div key={`question-number-${questionNumber}`}>
                 <PollQuestion text={question.question} />
                 <RadioButtonGroup
-                name={`answer-${currentQuestion}`}
-                checkedValue={this.state.checkedValue}
+                name={questionNumber}
+                checkedValue={this.state.checkedValue[questionNumber]}
                 choices={question.choices}
                 onChange = {this.setCheckedValue} />
             </div>
             )
+
         }.bind(this));
 
         return (
