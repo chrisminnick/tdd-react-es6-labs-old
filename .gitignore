@@ -1,4 +1,14 @@
+# MacOS X
 .DS_Store
-dist
-node_modules
+
+# WebStorm
 .idea
+
+# npm
+node_modules
+
+# generated files
+dist
+
+#jest
+node_modules/jest-cli/.haste_cache/*
