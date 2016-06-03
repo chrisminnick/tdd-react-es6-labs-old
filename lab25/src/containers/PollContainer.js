@@ -73,8 +73,6 @@ class PollContainer extends React.Component {
 
     render(){
         
-        
-        console.log(this.state.numberOfQuestions);
         var rowStyle = {
             backgroundColor: '#dadada',
             border: '1px solid black',
