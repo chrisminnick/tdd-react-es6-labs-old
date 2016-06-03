@@ -10,7 +10,7 @@
     "correctAnswer": "Pizza"
   },
     {
-      "question": "What's your favorite color?:",
+      "question": "What's your favorite color?",
       "choices": [
         {"value": "Orange", "label": "Orange"},
         {"value": "Blue", "label": "Blue"}
