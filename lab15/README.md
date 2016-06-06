@@ -3,9 +3,9 @@
 Code from "TDD with React.js and ES2015" by Chris Minnick
 
 ## Installation
-1. Install Node.js 4.4.2
+1. Install Node.js
 2. Install git.
-3. Install gulp globally
+3. Install gulp 4 globally
 4. Type 'npm install' in the console.
 
 ## Usage
